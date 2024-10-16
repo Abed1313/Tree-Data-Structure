@@ -15,7 +15,7 @@ namespace StudyTree
         {
             Root = new Node(rootValue);
         }
-        // 1.
+        // 1. Write a function to insert a value into a Binary Tree, ensuring that the tree maintains the correct structure based on the specified rules for node placement.
         public void Insert(int data)
         {
             Insert(Root, data);
@@ -45,8 +45,9 @@ namespace StudyTree
                 }
             }
         }
+
         //*****************************************************************************************************
-        // 2.
+        // 2. Write a function to determine whether a Binary Tree is symmetric around its center, using a helper function to compare the left and right subtrees.
         public bool IsSymmetric(Node root)
         {
             if (root == null) return true;                                   //    1
@@ -69,8 +70,9 @@ namespace StudyTree
                    IsMirror(left.Lift, right.Right) &&
                    IsMirror(left.Right, right.Lift);
         }
+
         //*****************************************************************************************************
-        // 3.
+        // 3. Write a function to find and return the maximum depth of a Binary Tree, where the maximum depth is defined as the longest path from the root node to any leaf node.
         public int FindMaximumDepth(Node node)
         {
             if (node == null) { return 0; }
@@ -82,8 +84,9 @@ namespace StudyTree
 
             return Math.Max(FindMaximumDepth(node.Lift), FindMaximumDepth(node.Right)) + 1;
         }
+
         //*****************************************************************************************************
-        // 4.
+        // 4. Write a function to convert a sorted array into a height-balanced Binary Search Tree (BST).
         public Node ConvertSortedArrayToBST(int[] nums)
         {
             return ConvertToBST(nums, 0, nums.Length - 1);
@@ -100,8 +103,9 @@ namespace StudyTree
 
             return node;
         }
+
         //*****************************************************************************************************
-        // 5.
+        // 5. Write a function to create a mirror image of a Binary Search by swapping the left and right children of all nodes.
         public void MirrorTree(Node node)
         {
             if (node == null) { return; }
@@ -113,8 +117,9 @@ namespace StudyTree
             node.Lift = node.Right;
             node.Right = temp;
         }
+
         //*****************************************************************************************************
-        // 6.
+        // 6. Write a function to calculate the diameter of a Binary Tree, defined as the longest path between any two nodes, which may or may not pass through the root.
         private int maxDiameter = 0;
         public int Diameter(Node node)
         {
@@ -138,8 +143,9 @@ namespace StudyTree
             Diameter(root);
             return maxDiameter;
         }
+
         //*****************************************************************************************************
-        // 7.
+        // 7. Write a function to determine whether two Binary Trees are identical in structure and node values.
         public bool IsSameTree(Node node, Node node2)
         {
             if (node == null && node2 == null) return true;
@@ -148,8 +154,9 @@ namespace StudyTree
 
             return IsSameTree(node.Lift, node2.Lift) && IsSameTree(node.Right, node2.Right);
         }
+
         //*****************************************************************************************************
-        // 8.
+        // 8. Write a function to merge two Binary Trees by adding the values of overlapping nodes and returning a new tree representing the merged structure.
         public Node MergeTrees(Node node, Node node2)
         {
             if(node == null && node2 == null) return null;
@@ -163,8 +170,9 @@ namespace StudyTree
 
             return merged;
         }
+
         //*****************************************************************************************************
-        // 9.
+        // 9. Implement a method to check if a binary tree is height-balanced, where the heights of the left and right subtrees of any node differ by no more than one. Provide methods to calculate the height of the tree and determine if it is balanced.
         public virtual int height(Node node)
         {
             /* base case tree is empty */
@@ -213,8 +221,9 @@ namespace StudyTree
             else
                 return Math.Max(lh, rh) + 1;
         }
+
         //*****************************************************************************************************
-        // 10.
+        // 10. Write a method to determine the minimum depth of a binary tree, defined as the number of nodes along the shortest path from the root node down to the nearest leaf node.
         public int MinimumDepth(Node node)
         {
             if (node == null) { return 0; }
@@ -226,8 +235,9 @@ namespace StudyTree
 
             return Math.Min(MinimumDepth(node.Lift), MinimumDepth(node.Right)) + 1;
         }
+
         //*****************************************************************************************************
-        // 11.
+        // 11. Implement a method to calculate the sum of values along the path from the root to the leaf node in a binary tree, prioritizing the right subtree first when calculating the path sum.
         public int PathSum(Node node)
         {
             if (node == null) return 0; // Base case: if the node is null, return 0
@@ -244,8 +254,9 @@ namespace StudyTree
             // If both children exist or no left child, return the right path sum
             return node.Data + rightSum;
         }
+
         //*****************************************************************************************************
-        // 12.
+        // 12. Write a method to determine if there exists a root-to-leaf path in a binary tree such that the sum of the node values along the path equals a given target sum.
         public bool PathEqualSum(Node node, int s)
         {
             if(node == null) return false;
@@ -259,8 +270,9 @@ namespace StudyTree
             return PathEqualSum(node.Lift, s) || PathEqualSum(node.Right, s);
 
         }
+
         //*****************************************************************************************************
-        // 13.
+        // 13. Calculate the maximum path sum in a binary tree, where the path can start and end at any node, and negative values can be ignored.
         public int MaximumPathSum(Node node)
         {
             if (node == null) return 0;

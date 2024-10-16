@@ -15,7 +15,7 @@ namespace StudyTree
         {
             Root = null;
         }
-        // 1.
+        // 1. Write a function to insert a value into a Binary Search Tree (BST) while maintaining the BST properties using recursion.
         public void Insert(int value)
         {
             Root = Insert(Root, value);
@@ -38,8 +38,9 @@ namespace StudyTree
 
             return node;
         }
+
         //*****************************************************************************************************
-        // 2.
+        // 2. Write a function to check if a given value exists in a Binary Search Tree (BST) using recursion.
         public bool Contains(int value)
         {
             return Contains(Root, value);
@@ -64,8 +65,9 @@ namespace StudyTree
                 return Contains(node.Right, data);
             }
         }
+
         //*****************************************************************************************************
-        // 3.
+        // 3. Write a function to find and return the node with the maximum value in a Binary Search Tree (BST)
         public Node FindMax(Node node)
         {
             if (node == null)
@@ -78,8 +80,9 @@ namespace StudyTree
             }
             return node;
         }
+
         //*****************************************************************************************************
-        // 4.
+        // 4. Write a function to find and return the node with the second maximum value in a Binary Search Tree (BST).
         public Node FindSecondMax(Node node)
         {
             if (node == null || (node.Lift == null && node.Right == null))
@@ -100,8 +103,9 @@ namespace StudyTree
             }
             return parent;
         }
+
         //*****************************************************************************************************
-        // 5.
+        // 5. Write a function to calculate and return the sum of all leaf node values in a Binary Search Tree (BST).
         public int LeafSum(Node node)
         {
             if(node == null)
@@ -117,8 +121,9 @@ namespace StudyTree
 
             return Lift + Right;
         }
+
         //*****************************************************************************************************
-        // 6.
+        // 6. Write a function to create a mirror image of a Binary Search Tree (BST) by swapping the left and right children of all nodes.
         public void MirrorTree(Node node)
         {
             if(node == null) { return; }
@@ -131,8 +136,9 @@ namespace StudyTree
             node.Lift = node.Right;
             node.Right = temp;
         }
+
         //*****************************************************************************************************
-        // 7.
+        // 7. Write a function to print all the values in the rightmost path of a Binary Search Tree (BST).
         public void PrintRightPath(Node node)
         {
             if (node == null) return;
@@ -143,8 +149,9 @@ namespace StudyTree
                 node = node.Right;
             }
         }
+
         //*****************************************************************************************************
-        // 8.
+        // 8. Write a function to print the right view of a Binary Search Tree (BST), displaying the nodes that are visible when the tree is viewed from the right side.
         public void PrintRightView(Node node)
         {
             if (node == null) { return; }
@@ -176,8 +183,9 @@ namespace StudyTree
             }
         }
 
+
         //*****************************************************************************************************
-        // 9.
+        // 9. Write a function to print all the values in the leftmost path of a Binary Search Tree (BST).
         public void PrintLeftPath(Node node)
         {
             if (node == null) { return; }
@@ -187,8 +195,9 @@ namespace StudyTree
                 node = node.Lift;
             }
         }
+
         //*****************************************************************************************************
-        // 10.
+        // 10. Write a function to find and return the minimum depth of a Binary Search Tree (BST), where the minimum depth is defined as the shortest path from the root node to any leaf node.
         public int FindMinimumDepth(Node node)
         {
             if(node == null) { return 0; }
@@ -200,8 +209,9 @@ namespace StudyTree
 
             return Math.Min(FindMinimumDepth(node.Lift), FindMinimumDepth(node.Right))+1;
         }
+
         //*****************************************************************************************************
-        // 11. 
+        // 11. Write a function to find and return the minimum depth of a Binary Search Tree (BST) specifically focusing on the left subtree, where the minimum depth is defined as the shortest path from the root node to any leaf node in the left subtree.
         public int FindMinimumLeftDepth(Node node)
         { //calculate the minimum depth , specifically focusing on the left subtree
             if (node == null) { return 0; }                                            //       50
@@ -212,8 +222,9 @@ namespace StudyTree
 
             return FindMinimumLeftDepth(node.Lift) + 1;
         }
+
         //*****************************************************************************************************
-        // 12.
+        // 12. Write a function to find and return a list of the largest values at each level of a Binary Search Tree (BST).
         public List<int> LargestLevelValue()
         {
             List<int> largestValues = new List<int>();
@@ -236,8 +247,9 @@ namespace StudyTree
             LargestLevelValue(node.Lift, Level + 1, largestValues);
             LargestLevelValue(node.Right, Level + 1, largestValues);
         }
+
         //*****************************************************************************************************
-        // 13.
+        // 13. Write a function to find and return the node with the minimum value in a Binary Search Tree (BST).
         public Node FindMin(Node node)
         {
             if (node == null) { return null; }
@@ -248,8 +260,9 @@ namespace StudyTree
             }
             return node;
         }
+
         //*****************************************************************************************************
-        // 14.
+        // 14. Write a function to calculate and return the sum of all node values in a Binary Search Tree (BST).
         public int SumOfNodes()
         {
             return SumOfNodes(Root);
@@ -260,8 +273,9 @@ namespace StudyTree
 
             return node.Data + SumOfNodes(node.Lift) + SumOfNodes(node.Right);
         }
+
         //*****************************************************************************************************
-        // 15.
+        // 15. Write a function to return a list of all odd-valued nodes in a Binary Search Tree (BST).
         public List<int> ListOfOddNodes()
         {
             return ListOfOddNodes(Root);
@@ -282,8 +296,9 @@ namespace StudyTree
 
             return oddNodes;
         }
+
         //*****************************************************************************************************
-        // 16.
+        // 16. Write a function to return a list of all even-valued nodes in a Binary Search Tree (BST).
         public List<int> ListOfEvenNodes()
         {
             return ListOfEvenNodes(Root);
@@ -304,8 +319,9 @@ namespace StudyTree
 
             return evenNodes;
         }
+
         //*****************************************************************************************************
-        // 17.
+        // 17. Write a function to determine whether a Binary Search Tree (BST) is valid by checking if each node's left child is less than the node and its right child is greater than the node.
         public bool IsValidate(Node node)
         {
             if (node == null) return false;
